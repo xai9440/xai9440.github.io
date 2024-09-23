@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Portfolio" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/fa62c117c7.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="styles.css" />
+    <title>Xiaocheng Ai</title>
+  </head>
+  <body class="dark" id="top">
+    <header class="header center">
+      <h3>
+        <a href="https://xai9440.github.io" class="link"
+          >XA.</a
+        >
+      </h3>
+
+      <nav class="nav center">
+        <ul class="nav__list center">
+          <li class="nav__list-item">
+            <a class="link link--nav" href="#projects">Projects</a>
+          </li>
+          <li class="nav__list-item"></li>
+            <a class="link link--nav" href="#experiences">Experiences</a>
+          </li>
+          <li class="nav__list-item">
+            <a class="link link--nav" href="#skills">Skills</a>
+          </li>
+          <li class="nav__list-item">
+            <a class="link link--nav" href="#contact">Contact</a>
+          </li>
+        </ul>
+
+        <button
+          type="button"
+          aria-label="toggle navigation"
+          class="btn btn--icon nav__hamburger"
+        >
+          <i aria-hidden="true" class="fas fa-bars"></i>
+        </button>
+      </nav>
+    </header>
+
+    <main>
+      <!-- About -->
+      <div class="about center">
+        <h1>Hi, I am <span class="about__name">Xiaocheng Ai.</span></h1>
+        <h2 class="about__role">A CS Student.</h2>
+        <p class="about__desc">
+            Dedicated and motivated high school student with a passion for software engineering and data science,
+            seeking opportunites to further develop my skills and gain experience.
+            With a track record of creating personal projects as a means to learn, I am eager to contribute to 
+            meaningful work while expanding my expertise in the field of computer science.
+        </p>
+
+        <div class="about__contact">
+          <a
+            href="https://github.com/xai9440"
+            aria-label="github"
+            class="link link--icon"
+          >
+          <span class="btn btn--outline">GitHub</span>
+          </a>
+
+          <a
+            href="www.linkedin.com/in/xiaochengai"
+            aria-label="linkedin"
+            class="link link--icon"
+          >
+          <span class="btn btn--outline">LinkedIn</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Projects -->
+      <section id="projects" class="section projects">
+        <h2 class="section__title">Projects</h2>
+
+        <div class="projects__grid">
+          <div class="project">
+            <h3>Summarization Nation</h3>
+            <p class="project__description">
+                Unfortunately went offline because free resources given by Railway were depleted.
+                This web-app summarizes text/audio files, allowing users to manipulate variables
+                like summary style for customized outputs. Developed in collaboration with a team of
+                four peers from AI Camp. I focused on backend dev, API integration, and deployment.
+            </p>
+            <ul class="project__stack">
+              <li class="project__stack-item">React</li>
+              <li class="project__stack-item">Django</li>
+              <li class="project__stack-item">Docker</li>
+            </ul>
+            <a
+            href="https://www.producthunt.com/products/summarization-nation"
+            class="link footer__link"
+            >
+            Product Hunt
+          </a>
+          </div>
+
+          <div class="project">
+            <h3>Summarization Nation (Mobile)</h3>
+            <p class="project__description">
+                An independent product, inspired by the original Summarization Nation, is a fully
+                functional mobile app that takes user input and provides accurate summaries. This
+                project enhanced skills in mobile app development and the flexible use of APIs, while
+                also increasing adaptability with various frameworks and technologies. 
+            </p>
+            <ul class="project__stack">
+              <li class="project__stack-item">Flutter</li>
+              <li class="project__stack-item">Dart</li>
+              <li class="project__stack-item">HuggingFace</li>
+            </ul>
+            <a
+            href="https://github.com/xai9440/SumNationMobile"
+            class="link footer__link"
+            >
+            GitHub
+          </a>
+          </div>
+
+          <div class="project">
+            <h3>Heart Disease AI Model</h3>
+            <p class="project__description">
+                An AI model trained using a Kaggle database to predict the likelihood of a patient
+                having heart disease based on test results. Three types of implementations were utilized:
+                Logistic Regression, Random Forest, and Support Vector Machine (SVM), achieving up to 87%
+                accuracy. The project involved data cleaning, visualization, and manipulation.
+            </p>
+            <ul class="project__stack">
+              <li class="project__stack-item">Colab</li>
+              <li class="project__stack-item">Data processing</li>
+              <li class="project__stack-item">Seaborn</li>
+            </ul>
+            <a
+              href="https://colab.research.google.com/drive/15sH1m5OSwQdIujxNyfIRqGTqKQNPPhnw?usp=sharing"
+              class="link footer__link"
+              >
+              Google Colab Notebook
+            </a>
+          </div>
+        </div>
+        <br></br>
+        <div class="projects__grid">
+            <div class="project">
+              <h3>Jungle Thief</h3>
+              <p class="project__description">
+                I designed and implemented a 2D platformer game, focusing on game mechanics, levels, and user
+                interfaces. Conducted playtesting sessions to gather feedback for iterative gameplay improvements.
+                Incorporated visual and sound effects to enhance the overall atmosphere and immersion, resulting
+                in an engaging user experience.
+              </p>
+              <ul class="project__stack">
+                <li class="project__stack-item">Unity</li>
+                <li class="project__stack-item">C#</li>
+                <li class="project__stack-item">Photoshop</li>
+              </ul>
+              <a
+              href="https://drive.google.com/file/d/1y6ul_l9i41zF-i4mNp0kneFMMB4xh0wP/view?usp=sharing"
+              class="link footer__link"
+              >
+              Demo Video
+            </a>
+            </div>
+            <div class="project">
+              <h3>MathsheetsPDF</h3>
+              <p class="project__description">
+                A math worksheet generator that allows users to create customizable worksheets by selecting the number
+                of problems, maximum answer value, and operations (addition, subtraction, multiplication, division).
+                Features PDF export for easy printing and sharing. A work in progress, future plans include allowing a
+                mixture of operations.
+              </p>
+              <ul class="project__stack">
+                <li class="project__stack-item">Javascript</li>
+                <li class="project__stack-item">PDF Manipulation</li>
+                <li class="project__stack-item">HTML/CSS</li>
+              </ul>
+              <a
+              href="https://github.com/xai9440/mathsheetspdf"
+              class="link footer__link"
+              >
+              GitHub
+            </a>
+            </div>
+          </div>
+      </section>
+
+      <!-- Experiences -->
+      <section id="experiences" class="section experiences">
+        <h2 class="section__title">Experiences</h2>
+
+        <div class="projects__grid"></div>
+            <div class="project">
+              <h3>Front-End Engineering Intern</h3>
+              <p class="project__description">
+                Was a member of the FEE team, contributed to the development and maintenance of Lucid's five marketing sites,
+                including Lucidco, Lucidspark, and Lucidchart. Gained proficiency in working within a large codebase and using
+                TypeScript effectively. Identified and resolved approximately 20 accessibility issues across various sites,
+                primarily focusing on improving aria-labels and color contrast. Additionally, created a new page for Lucidco,
+                https://lucid.co/solutions. Developed an internal email signature tool that generates optimized email signatures
+                based on user input as well.
+              </p>
+              <ul class="project__stack">
+                <li class="project__stack-item">Lucid Software, South Jordan, Utah</li>
+              </ul>
+              <a
+              href="https://lucid.co/solutions"
+              class="link footer__link"
+              >
+              The page I made!
+            </a>
+            </div>
+            <br></br>
+            <div class="project">
+              <h3>Attendee of Incubator Program</h3>
+              <p class="project__description">
+                During the introductory AI Camp, I gained foundational knowledge in machine learning and practical experience with model
+                implementations such as XGBoost, SVM, and Random Forest. Developed proficiency in data preprocessing, refinement, and
+                visualization techniques using Pandas and Seaborn. I was recognized and invited to the Incubator program, where
+                I enhanced my skills in software design, development, and deployment. My final project was a collaborative effort with a team of
+                four to create a fully functioning web application (Summarization Nation).
+              </p>
+              <ul class="project__stack">
+                <li class="project__stack-item">Hosted by AI Camp</li>
+              </ul>
+              <a
+              href="https://www.ai-camp.org/"
+              class="link footer__link"
+              >
+              AI Camp
+            </a>
+            </div>
+          </div>
+        </section>
+
+
+
+      <!-- Skills -->
+      <section class="section skills" id="skills">
+        <h2 class="section__title">Skills</h2>
+        <ul class="skills__list">
+          <li class="skills__list-item btn btn--plain">HTML</li>
+          <li class="skills__list-item btn btn--plain">CSS</li>
+          <li class="skills__list-item btn btn--plain">JavaScript</li>
+          <li class="skills__list-item btn btn--plain">TypeScript</li>
+          <li class="skills__list-item btn btn--plain">Dart</li>
+          <li class="skills__list-item btn btn--plain">React</li>
+          <li class="skills__list-item btn btn--plain">Git</li>
+          <li class="skills__list-item btn btn--plain">Django</li>
+          <li class="skills__list-item btn btn--plain">Flutter</li>
+          <li class="skills__list-item btn btn--plain">Directus</li>
+          <li class="skills__list-item btn btn--plain">SQL</li>
+        </ul>
+      </section>
+
+      <!-- Contact -->
+      <section class="section contact center" id="contact">
+        <h2 class="section__title">Contact</h2>
+        <span class="btn btn--outline">emily.ai5307@gmail.com</span>
+        <span class="btn btn--outline">801-941-7866</span>
+      </section>
+    </main>
+
+    <footer class="footer">
+        <p>Made with ❤️️ by Xiaocheng Ai</p>
+        <p>Thanks for visiting my website!</p>
+    </footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
