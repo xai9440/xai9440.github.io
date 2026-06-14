@@ -114,7 +114,6 @@ button {
 /* keep all real content above the field */
 .header,
 main,
-.footer,
 .scroll-top {
   position: relative;
   z-index: 2;
@@ -349,6 +348,7 @@ main {
   max-width: 1100px;
   width: 90%;
   margin: 0 auto;
+  padding-bottom: 8em;
 }
 
 .section {
@@ -546,17 +546,9 @@ main {
   display: none;
 }
 
-/*===============
-  footer
-===============*/
-
-.footer {
-  padding: 5em 0 4em;
-  margin-top: 8em;
-  text-align: center;
-  color: var(--ink-soft);
-  font-size: 0.9rem;
-  border-top: 1px solid var(--line);
+.contact__items .btn {
+  text-transform: none;
+  letter-spacing: 0.02em;
 }
 
 /*===============
