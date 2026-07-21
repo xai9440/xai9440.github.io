@@ -9,7 +9,7 @@ const finePointer = window.matchMedia('(pointer: fine)').matches
 ===============*/
 
 const canvas = document.querySelector('.field')
-const ctx = canvas.getContext('2d')
+const ctx = canvas ? canvas.getContext('2d') : null
 
 let segments = []
 let dpr = 1
@@ -86,27 +86,29 @@ const loop = () => {
   rafId = requestAnimationFrame(loop)
 }
 
-buildField()
-if (reduceMotion) {
-  drawField() // single static frame
-} else {
-  loop()
-}
-
-window.addEventListener('resize', () => {
+if (canvas && ctx) {
   buildField()
-  if (reduceMotion) drawField()
-})
+  if (reduceMotion) {
+    drawField() // single static frame
+  } else {
+    loop()
+  }
 
-if (finePointer && !reduceMotion) {
-  window.addEventListener('mousemove', (e) => {
-    pointer.x = e.clientX
-    pointer.y = e.clientY
-    pointer.active = true
+  window.addEventListener('resize', () => {
+    buildField()
+    if (reduceMotion) drawField()
   })
-  window.addEventListener('mouseleave', () => {
-    pointer.active = false
-  })
+
+  if (finePointer && !reduceMotion) {
+    window.addEventListener('mousemove', (e) => {
+      pointer.x = e.clientX
+      pointer.y = e.clientY
+      pointer.active = true
+    })
+    window.addEventListener('mouseleave', () => {
+      pointer.active = false
+    })
+  }
 }
 
 /*===============
@@ -116,48 +118,50 @@ if (finePointer && !reduceMotion) {
 if (finePointer && !reduceMotion) {
   const dot = document.querySelector('.cursor-dot')
   const ring = document.querySelector('.cursor-ring')
-  body.classList.add('has-cursor')
+  if (dot && ring) {
+    body.classList.add('has-cursor')
 
-  let mx = window.innerWidth / 2
-  let my = window.innerHeight / 2
-  let rx = mx
-  let ry = my
+    let mx = window.innerWidth / 2
+    let my = window.innerHeight / 2
+    let rx = mx
+    let ry = my
 
-  window.addEventListener('mousemove', (e) => {
-    mx = e.clientX
-    my = e.clientY
-    dot.style.transform = `translate(${mx}px, ${my}px)`
-  })
+    window.addEventListener('mousemove', (e) => {
+      mx = e.clientX
+      my = e.clientY
+      dot.style.transform = `translate(${mx}px, ${my}px)`
+    })
 
-  const ringLoop = () => {
-    rx += (mx - rx) * 0.18
-    ry += (my - ry) * 0.18
-    ring.style.transform = `translate(${rx}px, ${ry}px)`
-    requestAnimationFrame(ringLoop)
+    const ringLoop = () => {
+      rx += (mx - rx) * 0.18
+      ry += (my - ry) * 0.18
+      ring.style.transform = `translate(${rx}px, ${ry}px)`
+      requestAnimationFrame(ringLoop)
+    }
+    ringLoop()
+
+    // grow the ring over anything interactive
+    const hoverTargets = document.querySelectorAll('a, button, .magnetic')
+    hoverTargets.forEach((el) => {
+      el.addEventListener('mouseenter', () => body.classList.add('cursor-hover'))
+      el.addEventListener('mouseleave', () => body.classList.remove('cursor-hover'))
+    })
+
+    // magnetic pull toward the cursor
+    const magnets = document.querySelectorAll('.magnetic')
+    const STRENGTH = 0.35
+    magnets.forEach((el) => {
+      el.addEventListener('mousemove', (e) => {
+        const r = el.getBoundingClientRect()
+        const x = e.clientX - (r.left + r.width / 2)
+        const y = e.clientY - (r.top + r.height / 2)
+        el.style.transform = `translate(${x * STRENGTH}px, ${y * STRENGTH}px)`
+      })
+      el.addEventListener('mouseleave', () => {
+        el.style.transform = ''
+      })
+    })
   }
-  ringLoop()
-
-  // grow the ring over anything interactive
-  const hoverTargets = document.querySelectorAll('a, button, .magnetic')
-  hoverTargets.forEach((el) => {
-    el.addEventListener('mouseenter', () => body.classList.add('cursor-hover'))
-    el.addEventListener('mouseleave', () => body.classList.remove('cursor-hover'))
-  })
-
-  // magnetic pull toward the cursor
-  const magnets = document.querySelectorAll('.magnetic')
-  const STRENGTH = 0.35
-  magnets.forEach((el) => {
-    el.addEventListener('mousemove', (e) => {
-      const r = el.getBoundingClientRect()
-      const x = e.clientX - (r.left + r.width / 2)
-      const y = e.clientY - (r.top + r.height / 2)
-      el.style.transform = `translate(${x * STRENGTH}px, ${y * STRENGTH}px)`
-    })
-    el.addEventListener('mouseleave', () => {
-      el.style.transform = ''
-    })
-  })
 }
 
 /*===============
@@ -166,24 +170,27 @@ if (finePointer && !reduceMotion) {
 
 const btnHamburger = document.querySelector('.nav__hamburger .fas')
 const navUl = document.querySelector('.nav__list')
+const navToggle = document.querySelector('.nav__hamburger')
 
-const displayList = () => {
-  if (btnHamburger.classList.contains('fa-bars')) {
-    btnHamburger.classList.replace('fa-bars', 'fa-times')
-    navUl.classList.add('display-nav-list')
-  } else {
-    btnHamburger.classList.replace('fa-times', 'fa-bars')
-    navUl.classList.remove('display-nav-list')
+if (btnHamburger && navUl && navToggle) {
+  const displayList = () => {
+    if (btnHamburger.classList.contains('fa-bars')) {
+      btnHamburger.classList.replace('fa-bars', 'fa-times')
+      navUl.classList.add('display-nav-list')
+    } else {
+      btnHamburger.classList.replace('fa-times', 'fa-bars')
+      navUl.classList.remove('display-nav-list')
+    }
   }
+
+  navToggle.addEventListener('click', displayList)
+
+  navUl.querySelectorAll('.link--nav').forEach((link) =>
+    link.addEventListener('click', () => {
+      if (navUl.classList.contains('display-nav-list')) displayList()
+    })
+  )
 }
-
-document.querySelector('.nav__hamburger').addEventListener('click', displayList)
-
-navUl.querySelectorAll('.link--nav').forEach((link) =>
-  link.addEventListener('click', () => {
-    if (navUl.classList.contains('display-nav-list')) displayList()
-  })
-)
 
 /*===============
   scroll to top
@@ -191,15 +198,17 @@ navUl.querySelectorAll('.link--nav').forEach((link) =>
 
 const btnScrollTop = document.querySelector('.scroll-top')
 
-document.addEventListener('scroll', () => {
-  const scrolled =
-    body.scrollTop > 500 || document.documentElement.scrollTop > 500
-  btnScrollTop.style.display = scrolled ? 'flex' : 'none'
-})
+if (btnScrollTop) {
+  document.addEventListener('scroll', () => {
+    const scrolled =
+      body.scrollTop > 500 || document.documentElement.scrollTop > 500
+    btnScrollTop.style.display = scrolled ? 'flex' : 'none'
+  })
 
-btnScrollTop.addEventListener('click', () =>
-  window.scrollTo({ top: 0, behavior: 'smooth' })
-)
+  btnScrollTop.addEventListener('click', () =>
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  )
+}
 
 /*===============
   scroll reveal

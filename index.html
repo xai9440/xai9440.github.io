@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&amp;family=Space+Grotesk:wght@500;600;700&amp;family=Space+Mono&amp;display=swap"
       rel="stylesheet"
     />
     <script
@@ -18,11 +18,14 @@
     <title>Xiaocheng Ai</title>
   </head>
   <body class="dark" id="top">
+    <canvas class="field" aria-hidden="true"></canvas>
+    <div class="frame" aria-hidden="true"></div>
+    <div class="cursor-dot" aria-hidden="true"></div>
+    <div class="cursor-ring" aria-hidden="true"></div>
+
     <header class="header center">
       <h3>
-        <a href="https://xai9440.github.io" class="link"
-          >XA.</a
-        >
+        <a href="https://xai9440.github.io" class="logo"><span>XA.</span></a>
       </h3>
 
       <nav class="nav center">
@@ -57,10 +60,10 @@
         <h1>Hi, I am <span class="about__name">Xiaocheng Ai.</span></h1>
         <h2 class="about__role">A CS Student.</h2>
         <p class="about__desc">
-            Dedicated and motivated college student with a passion for software engineering and data science,
-            seeking opportunites to further develop my skills and gain experience.
-            With a track record of creating personal projects as a means to learn, I am eager to contribute to 
-            meaningful work while expanding my expertise in the field of computer science.
+          Dedicated and motivated college student with a passion for software engineering and data science,
+          seeking opportunities to further develop my skills and gain experience.
+          With a track record of creating personal projects as a means to learn, I am eager to contribute to
+          meaningful work while expanding my expertise in the field of computer science.
         </p>
 
         <div class="about__contact">
@@ -69,7 +72,7 @@
             aria-label="github"
             class="link link--icon"
           >
-          <span class="btn btn--outline">GitHub</span>
+            <span class="btn btn--outline">GitHub</span>
           </a>
 
           <a
@@ -77,7 +80,7 @@
             aria-label="linkedin"
             class="link link--icon"
           >
-          <span class="btn btn--outline">LinkedIn</span>
+            <span class="btn btn--outline">LinkedIn</span>
           </a>
         </div>
       </div>
@@ -90,10 +93,10 @@
           <div class="project">
             <h3>Summarization Nation</h3>
             <p class="project__description">
-                Unfortunately went offline because free resources given by Railway were depleted.
-                This web-app summarizes text/audio files, allowing users to manipulate variables
-                like summary style for customized outputs. Developed in collaboration with a team of
-                four peers from AI Camp. I focused on backend dev, API integration, and deployment.
+              Unfortunately went offline because free resources given by Railway were depleted.
+              This web-app summarizes text/audio files, allowing users to manipulate variables
+              like summary style for customized outputs. Developed in collaboration with a team of
+              four peers from AI Camp. I focused on backend dev, API integration, and deployment.
             </p>
             <ul class="project__stack">
               <li class="project__stack-item">React</li>
@@ -101,20 +104,20 @@
               <li class="project__stack-item">Docker</li>
             </ul>
             <a
-            href="https://www.producthunt.com/products/summarization-nation"
-            class="link footer__link"
+              href="https://www.producthunt.com/products/summarization-nation"
+              class="link footer__link"
             >
-            Product Hunt
-          </a>
+              Product Hunt
+            </a>
           </div>
 
           <div class="project">
             <h3>Summarization Nation (Mobile)</h3>
             <p class="project__description">
-                An independent product, inspired by the original Summarization Nation, is a fully
-                functional mobile app that takes user input and provides accurate summaries. This
-                project enhanced skills in mobile app development and the flexible use of APIs, while
-                also increasing adaptability with various frameworks and technologies. 
+              An independent product, inspired by the original Summarization Nation, is a fully
+              functional mobile app that takes user input and provides accurate summaries. This
+              project enhanced skills in mobile app development and the flexible use of APIs, while
+              also increasing adaptability with various frameworks and technologies.
             </p>
             <ul class="project__stack">
               <li class="project__stack-item">Flutter</li>
@@ -122,20 +125,20 @@
               <li class="project__stack-item">HuggingFace</li>
             </ul>
             <a
-            href="https://github.com/xai9440/SumNationMobile"
-            class="link footer__link"
+              href="https://github.com/xai9440/SumNationMobile"
+              class="link footer__link"
             >
-            GitHub
-          </a>
+              GitHub
+            </a>
           </div>
 
           <div class="project">
             <h3>Heart Disease AI Model</h3>
             <p class="project__description">
-                An AI model trained using a Kaggle database to predict the likelihood of a patient
-                having heart disease based on test results. Three types of implementations were utilized:
-                Logistic Regression, Random Forest, and Support Vector Machine (SVM), achieving up to 87%
-                accuracy. The project involved data cleaning, visualization, and manipulation.
+              An AI model trained using a Kaggle database to predict the likelihood of a patient
+              having heart disease based on test results. Three types of implementations were utilized:
+              Logistic Regression, Random Forest, and Support Vector Machine (SVM), achieving up to 87%
+              accuracy. The project involved data cleaning, visualization, and manipulation.
             </p>
             <ul class="project__stack">
               <li class="project__stack-item">Colab</li>
@@ -145,7 +148,7 @@
             <a
               href="https://colab.research.google.com/drive/15sH1m5OSwQdIujxNyfIRqGTqKQNPPhnw?usp=sharing"
               class="link footer__link"
-              >
+            >
               Google Colab Notebook
             </a>
           </div>
@@ -179,7 +182,7 @@
               mixture of operations.
             </p>
             <ul class="project__stack">
-              <li class="project__stack-item">Javascript</li>
+              <li class="project__stack-item">JavaScript</li>
               <li class="project__stack-item">PDF Manipulation</li>
               <li class="project__stack-item">HTML/CSS</li>
             </ul>
@@ -210,7 +213,7 @@
             <h3>Software Engineer Intern</h3>
             <p class="project__description">
               At Lucid Software, I worked on the user interface for Lucidchart's upcoming Terraform-to-Diagram
-              feature, scheduled for release in late 2026. As a part of that project I also helped make auto-generated
+              feature, scheduled for release in late 2026. As part of that project, I also helped make auto-generated
               infrastructure diagrams easier to understand by building visual highlighting interactions and refining
               the frontend experience. Along the way, I collaborated closely with my team and resolved 10+ issues as
               part of a broader effort to modernize Lucidchart's frontend architecture.
@@ -226,9 +229,9 @@
             <h3>Section Leader</h3>
             <p class="project__description">
               As a section leader for Stanford's introductory CS courses (CS106A &amp; CS106B), I help students build
-              confidence with programming fundamentals. I lead weekly discussion sections for about 14 students every quarter,
-              explain key concepts through examples, and grade assignments with feedback on both functionality and
-              code quality. I also meet with students one-on-one for code reviews, where I focus on giving clear,
+              confidence with programming fundamentals. I lead weekly discussion sections for about 14 students each
+              quarter, explain key concepts through examples, and grade assignments with feedback on both functionality
+              and code quality. I also meet with students one-on-one for code reviews, where I focus on giving clear,
               practical guidance they can use in future assignments.
             </p>
             <ul class="project__stack">
@@ -251,7 +254,7 @@
               <li class="project__stack-item">June 2025 - August 2025</li>
             </ul>
           </div>
-          
+
           <div class="project">
             <h3>Attendee of Incubator Program</h3>
             <p class="project__description">
@@ -303,8 +306,12 @@
     </main>
 
     <footer class="footer">
-        <p>Thanks for visiting my website!</p>
+      <p>Thanks for visiting my website!</p>
     </footer>
+
+    <button type="button" aria-label="scroll to top" class="scroll-top">
+      <i aria-hidden="true" class="fas fa-arrow-up"></i>
+    </button>
 
     <script src="./script.js"></script>
   </body>

@@ -52,16 +52,16 @@ h4 {
   font-family: var(--font-display);
   line-height: 1.1;
   color: var(--ink);
-  letter-spacing: -0.02em;
+  letter-spacing: 0;
 }
 
 h1 {
-  font-size: clamp(2.6rem, 7vw, 4.4rem);
+  font-size: 4.25rem;
   font-weight: 700;
 }
 
 h2 {
-  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  font-size: 2.35rem;
   font-weight: 600;
 }
 
@@ -222,7 +222,7 @@ body.has-cursor .magnetic {
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 1.4rem;
-  letter-spacing: -0.03em;
+  letter-spacing: 0;
   color: var(--ink);
   transition: color 0.25s ease;
 }
@@ -357,18 +357,26 @@ main {
 
 .section__title {
   width: 100%;
-  padding-bottom: 0.7em;
   margin-bottom: 1.2em;
-  border-bottom: 1px solid var(--line);
+}
+
+.section__title::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  margin-top: 0.7em;
+  background-color: var(--line-strong);
 }
 
 .nav__list {
   margin-right: 1.5em;
   display: flex;
+  gap: 1.8em;
 }
 
 .nav__list-item {
-  margin-left: 1.8em;
+  margin: 0;
 }
 
 .nav__hamburger {
@@ -482,7 +490,7 @@ main {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5em 1em;
-  margin: 1.4em 0;
+  margin: 1.4em 0 0;
   padding-top: 1.2em;
   border-top: 1px solid var(--line);
 }
@@ -498,6 +506,13 @@ main {
   flex-wrap: wrap;
   gap: 1.5em;
   margin-top: auto;
+  padding-top: 1.4em;
+}
+
+.project > .footer__link {
+  align-self: flex-start;
+  margin-top: auto;
+  padding-top: 1.4em;
 }
 
 .footer__link {
@@ -551,6 +566,13 @@ main {
   flex-wrap: wrap;
   gap: 1em;
   justify-content: center;
+  max-width: 100%;
+}
+
+.contact__items .btn {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  text-align: center;
 }
 
 .contact__items .link--icon::before {
@@ -618,6 +640,16 @@ main {
   responsive
 ===============*/
 
+@media (max-width: 800px) {
+  h1 {
+    font-size: 3.2rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+}
+
 @media (max-width: 600px) {
   :root {
     --frame-inset: 8px;
@@ -626,6 +658,18 @@ main {
   .header {
     height: 5.5em;
     width: 88%;
+  }
+
+  h1 {
+    font-size: 2.55rem;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
   }
 
   main {
@@ -643,7 +687,7 @@ main {
   .nav__list {
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.6em;
+    gap: 1.2em;
     padding: 5.5em 2em 2em;
     position: fixed;
     top: 0;
@@ -663,7 +707,7 @@ main {
   }
 
   .nav__list-item {
-    margin: 0.8em 0;
+    margin: 0;
   }
 
   .nav__hamburger {
